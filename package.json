@@ -1,0 +1,26 @@
+{
+  "description": "Web client for BlogHunt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BlogHunt/bloghunt-web.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.5.0",
+    "html-webpack-plugin": "^2.8.1",
+    "jade": "^1.11.0",
+    "jade-html-loader": "0.0.3",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "start": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18"
+  }
+}

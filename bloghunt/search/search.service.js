@@ -4,10 +4,10 @@ export default class {
     this.$http = $http;
   }
 
-  query() {
+  query(params) {
     const a = this.$http.get('/api/feeds.json', {
       params: {
-        search: 'brian'
+        search: params
       }
     });
     a.then(resp => console.log(resp));

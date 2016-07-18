@@ -1,0 +1,26 @@
+/** Navigation  **/
+
+.nav-tools {
+  margin-bottom: 10px;
+}
+
+
+/** Search Result Components **/
+
+.search-item-title {
+  margin-right:10px;
+}
+
+.search-divider {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.search-item-image {
+  width:40px;
+  margin-right:10px;
+}
+
+.tag-badge {
+  margin-left: 5px;
+}

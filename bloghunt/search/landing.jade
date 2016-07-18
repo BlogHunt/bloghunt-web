@@ -7,14 +7,52 @@ div(class="container-fluid")
             width="40px")
           | Peregrine
           small  Follow the stuff you care about.
-      form
+
+      // Search Form
+      form(ng-submit="search.search()")
         p
           div(class="input-group")
-            input(placeholder='What do you want to follow?', size="30" class="form-control")
+            input(ng-model="search.params", placeholder='What do you want to follow?', size="30" class="form-control")
             span(class="input-group-btn")
-              input(type="button", value="Search", class="btn btn-default")
+              input(type="submit", value="Search", class="btn btn-primary")
 
-        ul(class="row")
-          li(ng-repeat="result in search.results")
-            img(ng-src="{{result.image}}")
-            | {{result.title}}
+      // Other Tools
+      div(class="nav-tools")
+        div(class="row")
+          div(class="col-sm-3 col-sm-offset-1")
+            h4
+              | Browse by:
+          div(class="col-sm-8")
+            ul(class="nav nav-pills")
+              li(role="presentation")
+                a(href="/categories")
+                  | Category
+
+      // Search Results
+      ul(class="list-group")
+        li(ng-repeat="result in search.results", class="list-group-item", href="#")
+          // Image, Title, Description
+          div(class="row")
+            div(class="col-sm-12")
+              div(class="h4")
+                img(ng-if="result.image", ng-src="{{result.image}}", class="img-circle search-item-image")
+                span(class="search-item-title")
+                  | {{result.title}}
+                small(ng-if="result.description")
+                  | {{ search.trimmedString(result.description) }}
+          // Tags
+          div(ng-if="result.tags.length > 0" class="text-right")
+            span(ng-repeat="tagURL in result.tags" class="badge tag-badge")
+              | {{ search.tagForURL(tagURL).name }}
+          // Links
+          hr(class="search-divider")
+          div(class="row text-center")
+            div(class="col-sm-offset-2 col-sm-4 ")
+              a(href="{{ result.link }}")
+                small
+                  | Site Link
+            div(class="col-sm-4")
+              a(href="{{ result.link }}")
+                small
+                  | Feed Link
+

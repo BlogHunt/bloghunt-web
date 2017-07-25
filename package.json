@@ -12,6 +12,7 @@
     "html-webpack-plugin": "^2.8.1",
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
+    "node-http-proxy": "^0.2.3",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
   },
@@ -21,6 +22,8 @@
   },
   "dependencies": {
     "angular": "^1.5.0",
-    "angular-ui-router": "^0.2.18"
+    "angular-resource": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "style-loader": "^0.13.1"
   }
 }

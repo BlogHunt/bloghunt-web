@@ -18,8 +18,30 @@ module.exports = {
       {
         test: /\.jade$/,
         loader: 'jade'
-      }
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
+      },
+   ]
+  },
+ resolve: {
+    extensions: ['', '.js', '.jsx', '.css'],
+    modulesDirectories: [
+      'node_modules'
     ]
+  },
+  devServer: {
+    proxy: {
+      '/api*': {
+        target: 'http://bloghunt.herokuapp.com',
+        secure: false,
+        changeOrigin: true,
+        rewrite: function(req) {
+          req.url = req.url.replace(/^\/api/, '');
+        }
+      },
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
